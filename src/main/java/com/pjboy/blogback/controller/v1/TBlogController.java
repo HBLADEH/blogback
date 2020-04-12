@@ -1,4 +1,4 @@
-package com.pjboy.blogback.controller;
+package com.pjboy.blogback.controller.v1;
 
 
 
@@ -6,6 +6,7 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.api.ApiController;
 import com.baomidou.mybatisplus.extension.api.R;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.pjboy.blogback.annotation.ApiVersion;
 import com.pjboy.blogback.entity.TBlog;
 import com.pjboy.blogback.service.TBlogService;
 import org.springframework.web.bind.annotation.*;
@@ -20,8 +21,9 @@ import java.util.List;
  * @author makejava
  * @since 2020-04-09 17:12:30
  */
+@ApiVersion(1)
 @RestController
-@RequestMapping("tBlog")
+@RequestMapping("{version}/tBlog")
 public class TBlogController extends ApiController {
     /**
      * 服务对象
