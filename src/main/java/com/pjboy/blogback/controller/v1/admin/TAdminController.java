@@ -1,4 +1,4 @@
-package com.pjboy.blogback.controller.v1;
+package com.pjboy.blogback.controller.v1.admin;
 
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
@@ -22,7 +22,7 @@ import java.util.List;
  */
 @ApiVersion(1)
 @RestController
-@RequestMapping("{version}tAdmin")
+@RequestMapping("{version}/Admin")
 public class TAdminController extends ApiController {
   /**
    * 服务对象
@@ -31,7 +31,7 @@ public class TAdminController extends ApiController {
   private TAdminService tAdminService;
 
   /**
-   * 分页查询所有数据
+   * 分页查询所有数据  
    *
    * @param page   分页对象
    * @param tAdmin 查询实体
@@ -85,4 +85,16 @@ public class TAdminController extends ApiController {
   public R delete(@RequestParam("idList") List<Long> idList) {
     return success(this.tAdminService.removeByIds(idList));
   }
+
+  @PutMapping("/findByName")
+  public R findByName(@RequestParam String username) {
+    return success(this.tAdminService.selectByUsername(username));
+  }
+
+
+  @PutMapping("/checkLogin")
+  public R checkLogin(@RequestParam String username, @RequestParam String password) {
+    return success(this.tAdminService.selectByUsernameAndPassword(username,password));
+  }
+
 }

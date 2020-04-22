@@ -10,5 +10,4 @@ import com.pjboy.blogback.entity.TAdmin;
  * @since 2020-04-09 10:32:52
  */
 public interface TAdminDao extends BaseMapper<TAdmin> {
-
 }
